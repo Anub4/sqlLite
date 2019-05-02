@@ -18,19 +18,20 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
         etMeaning = findViewById(R.id.etMeaning);
         etWord = findViewById(R.id.etWord);
-
         btnAddWord= findViewById(R.id.btnAddWord);
+
         final MyHelper myHelper =new MyHelper(this);
         final SQLiteDatabase sqLiteDatabase =myHelper.getWritableDatabase();
 
         btnAddWord.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (myHelper.InsertData(etWord.getText().toString(),etMeaning.getText().toString(),sqLiteDatabase))
-                {
-                    Toast.makeText(MainActivity.this, "Success", Toast.LENGTH_SHORT).show();
+                long id = myHelper.InsertData(etWord.getText().toString(), etMeaning.getText().toString(),sqLiteDatabase);
+                if (id > 0 ){
+                    Toast.makeText(MainActivity.this, "Success" + id , Toast.LENGTH_SHORT).show();
                 }
                 else
                 {

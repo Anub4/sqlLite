@@ -22,8 +22,8 @@
         android:layout_height="wrap_content"
         android:gravity="start"
         android:textSize="20sp"
-        android:layout_weight="1"
         android:layout_margin="20dp"
+        android:hint="Enter meaning"
         />
     <Button
         android:id="@+id/btnAddWord"
