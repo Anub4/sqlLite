@@ -50,11 +50,22 @@ public class MyHelper extends SQLiteOpenHelper {
         return id;
     }
 
-    public List<Word> GetAllWOrds (SQLiteDatabase db){
+    public List<Word> GetAllWOrds  (){
         List<Word> dictionaryList = new ArrayList<>();
 //        Cursor cursor = db.rawQuery("select  * from tblWord",null);
         String[] columns = {WordID,Word,Meaning};
-        Cursor cursor = db.query(tblWord,null,null,null,null,null,null);
+        Cursor cursor = this.getReadableDatabase().query(tblWord,null,null,null,null,null,null);
+        if(cursor.getCount() > 0)
+        {
+            while (cursor.moveToNext()){
+                dictionaryList.add(new Word(cursor.getInt(0),cursor.getString(1),cursor.getString(2)));
+            }
+        }
+        return dictionaryList;
+    }
+    public List<Word> GetWordByName(String word){
+        List<Word> dictionaryList = new ArrayList<>();
+        Cursor cursor = this.getReadableDatabase().rawQuery("select * from  tblWord where Word = ?", new String[]{word} );
         if(cursor.getCount() > 0)
         {
             while (cursor.moveToNext()){
