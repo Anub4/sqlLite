@@ -5,34 +5,38 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".DisplayWordActivity">
+    tools:context=".DeleteActivity">
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal">
+        android:orientation="vertical"
+        >
 
-        <EditText
-            android:id="@+id/et1"
+
+        <TextView
+            android:id="@+id/tv1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:hint="Enter word" />
+            android:hint="000"
+            />
 
-        <Button
-            android:id="@+id/btn1"
+        <TextView
+            android:id="@+id/tv2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="4"
-            android:text="Search"/>
-
-
-
+            android:hint="000"
+            />
     </LinearLayout>
 
+
+
+
     <ListView
-        android:id="@+id/lv1"
+        android:id="@+id/lv2"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="match_parent">
+
 
     </ListView>
 </LinearLayout>

@@ -1,5 +1,6 @@
 package com.example.sqllite;
 
+import android.content.Intent;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.support.v7.app.AppCompatActivity;
@@ -42,5 +43,10 @@ public class MainActivity extends AppCompatActivity {
 
 
 
+    }
+
+    public void deleteRowActivity(View view) {
+        Intent myIntent = new Intent(MainActivity.this, DeleteActivity.class);
+        MainActivity.this.startActivity(myIntent);
     }
 }
